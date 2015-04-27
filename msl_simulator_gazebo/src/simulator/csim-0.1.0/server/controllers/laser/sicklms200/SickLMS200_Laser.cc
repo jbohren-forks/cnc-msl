@@ -28,17 +28,16 @@
 #include <algorithm>
 #include <assert.h>
 
-#include "Sensor.hh"
-#include "Global.hh"
-#include "XMLConfig.hh"
-#include "HingeJoint.hh"
-#include "World.hh"
-#include "Simulator.hh"
-#include "gazebo.h"
-#include "GazeboError.hh"
-#include "ControllerFactory.hh"
-#include "RaySensor.hh"
-#include "SickLMS200_Laser.hh"
+#include "simulator/csim-0.1.0/server/sensors/Sensor.hh"
+#include "simulator/csim-0.1.0/server/Global.hh"
+#include "simulator/csim-0.1.0/server/physics/HingeJoint.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
+#include "simulator/csim-0.1.0/server/Simulator.hh"
+#include "simulator/csim-0.1.0/libgazebo/gazebo.h"
+#include "simulator/csim-0.1.0/server/GazeboError.hh"
+#include "simulator/csim-0.1.0/server/controllers/ControllerFactory.hh"
+#include "simulator/csim-0.1.0/server/sensors/ray/RaySensor.hh"
+#include "simulator/csim-0.1.0/server/controllers/laser/sicklms200/SickLMS200_Laser.hh"
 
 using namespace gazebo;
 

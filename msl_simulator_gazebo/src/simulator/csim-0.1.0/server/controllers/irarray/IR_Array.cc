@@ -27,17 +27,16 @@
 #include <algorithm>
 #include <assert.h>
 
-#include "Sensor.hh"
-#include "Global.hh"
-#include "XMLConfig.hh"
-#include "Model.hh"
-#include "World.hh"
-#include "Simulator.hh"
-#include "gazebo.h"
-#include "GazeboError.hh"
-#include "ControllerFactory.hh"
-#include "IRSensor.hh"
-#include "IR_Array.hh"
+#include "simulator/csim-0.1.0/server/sensors/Sensor.hh"
+#include "simulator/csim-0.1.0/server/Global.hh"
+#include "simulator/csim-0.1.0/server/Model.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
+#include "simulator/csim-0.1.0/server/Simulator.hh"
+#include "simulator/csim-0.1.0/libgazebo/gazebo.h"
+#include "simulator/csim-0.1.0/server/GazeboError.hh"
+#include "simulator/csim-0.1.0/server/controllers/ControllerFactory.hh"
+#include "simulator/csim-0.1.0/server/sensors/ir/IRSensor.hh"
+#include "simulator/csim-0.1.0/server/controllers/irarray/IR_Array.hh"
 
 using namespace gazebo;
 

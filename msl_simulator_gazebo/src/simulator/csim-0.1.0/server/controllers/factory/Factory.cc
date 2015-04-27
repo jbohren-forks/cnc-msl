@@ -25,14 +25,13 @@
  * SVN info: $Id: Factory.cc 7748 2009-05-30 09:46:23Z robotos $
  */
 
-#include "Global.hh"
-#include "XMLConfig.hh"
-#include "Model.hh"
-#include "World.hh"
-#include "gazebo.h"
-#include "GazeboError.hh"
-#include "ControllerFactory.hh"
-#include "Factory.hh"
+#include "simulator/csim-0.1.0/server/Global.hh"
+#include "simulator/csim-0.1.0/server/Model.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
+#include "simulator/csim-0.1.0/libgazebo/gazebo.h"
+#include "simulator/csim-0.1.0/server/GazeboError.hh"
+#include "simulator/csim-0.1.0/server/controllers/ControllerFactory.hh"
+#include "simulator/csim-0.1.0/server/controllers/factory/Factory.hh"
 
 using namespace gazebo;
 

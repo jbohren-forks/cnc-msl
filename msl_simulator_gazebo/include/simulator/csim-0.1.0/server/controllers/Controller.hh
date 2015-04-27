@@ -79,7 +79,7 @@ class Controller
   public: bool IsConnected() const;
 
   /// \brief Load function for the child class
-  protected: virtual void LoadChild(XMLConfigNode * /*node*/) {return;}
+  protected: virtual void LoadChild(/*XMLConfigNode * node*/) {return;}
 
   /// \brief Save function for the child class
   protected: virtual void SaveChild(std::string &prefix, std::ostream &stream) {return;}

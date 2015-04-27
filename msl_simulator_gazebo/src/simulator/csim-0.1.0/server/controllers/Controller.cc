@@ -25,18 +25,17 @@
  * SVN info: $Id: Controller.cc 8474 2009-12-18 17:26:23Z natepak $
  */
 
-#include "Timer.hh"
-#include "Model.hh"
-#include "Sensor.hh"
-#include "gazebo.h"
-#include "GazeboError.hh"
-#include "GazeboMessage.hh"
-#include "XMLConfig.hh"
-#include "World.hh"
-#include "Controller.hh"
-#include "Simulator.hh"
-#include "PhysicsEngine.hh"
-#include "Global.hh"
+#include "simulator/csim-0.1.0/server/Timer.hh"
+#include "simulator/csim-0.1.0/server/Model.hh"
+#include "simulator/csim-0.1.0/server/sensors/Sensor.hh"
+#include "simulator/csim-0.1.0/libgazebo/gazebo.h"
+#include "simulator/csim-0.1.0/server/GazeboError.hh"
+#include "simulator/csim-0.1.0/server/GazeboMessage.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
+#include "simulator/csim-0.1.0/server/controllers/Controller.hh"
+#include "simulator/csim-0.1.0/server/Simulator.hh"
+#include "simulator/csim-0.1.0/server/physics/PhysicsEngine.hh"
+#include "simulator/csim-0.1.0/server/Global.hh"
 
 using namespace gazebo;
 
@@ -72,22 +71,22 @@ Controller::~Controller()
 //TODO XML STUFF --> XMLConfigNode *node
 void Controller::Load()
 {
-  XMLConfigNode *childNode;
+ // XMLConfigNode *childNode;
 
 
   if (!this->parent)
     gzthrow("Parent entity has not been set");
 
-  this->typeName = node->GetName();
+  this->typeName = "FixME";//node->GetName();
 
-  this->nameP->Load(node);
+  this->nameP->Load();
 
-  this->alwaysOnP->Load(node);
+  this->alwaysOnP->Load();
 
-  this->updatePeriodP->Load(node);
+  this->updatePeriodP->Load();
 
   // Remove IFace dependency
-  bool mandatory_iface = node->GetBool("withIFace", true, 0);
+  bool mandatory_iface = true; //node->GetBool("withIFace", true, 0);
   
   double updateRate  = this->updatePeriodP->GetValue();
   if (updateRate == 0)
@@ -96,10 +95,10 @@ void Controller::Load()
     this->updatePeriod = 1.0 / updateRate;
   this->lastUpdate = Simulator::Instance()->GetSimTime();
 
-  childNode = node->GetChildByNSPrefix("interface");
+  //childNode = node->GetChildByNSPrefix("interface");
   
   // Create the interfaces
-  while (childNode)
+  /*while ( childNode)
   {
     Iface *iface=0;
 
@@ -144,7 +143,7 @@ void Controller::Load()
     this->ifaces.push_back(iface);
 
     childNode = childNode->GetNextByNSPrefix("interface");
-  }
+  }*/
 
   if ( (this->ifaces.size() <= 0) && (mandatory_iface == true) )
   {
@@ -153,7 +152,7 @@ void Controller::Load()
     gzthrow(stream.str());
   }
 
-  this->LoadChild(node);
+  this->LoadChild();
 }
 
 

@@ -37,7 +37,7 @@
 #include "simulator/csim-0.1.0/server/controllers/position2d/steering/Wheel.hh"
 #include "simulator/csim-0.1.0/server/controllers/position2d/steering/DriveWheel.hh"
 #include "simulator/csim-0.1.0/server/controllers/position2d/steering/FullWheel.hh"
-#include "Simulator.hh"
+#include "simulator/csim-0.1.0/server/Simulator.hh"
 #include <string.h>
 
 
@@ -97,7 +97,7 @@ void Steering_Position2d::LoadChild(XMLConfigNode *node)
   defaultKd = 1; //node->GetTupleDouble("steerPD", 1, 1.0);
   defaultMaxAngle = DTOR(50); //node->GetFloat("steerMaxAngle", DTOR(50), 0);
 
-
+// TODO XML STUFF
   //childNode = node->GetChild("wheel");
 
   while (childNode)
