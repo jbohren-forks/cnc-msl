@@ -39,8 +39,8 @@
 #ifndef CYLINDERSHAPE_HH
 #define CYLINDERSHAPE_HH
 
-#include "Shape.hh"
-#include "Param.hh"
+#include "simulator/csim-0.1.0/server/physics/Shape.hh"
+#include "simulator/csim-0.1.0/server/Param.hh"
 
 namespace gazebo
 {
@@ -90,7 +90,8 @@ namespace gazebo
     public: virtual ~CylinderShape();
 
     /// \brief Load the cylinder
-    public: virtual void Load(XMLConfigNode *node);
+    //TODO XML STUFF
+    public: virtual void Load(/*XMLConfigNode *node*/);
 
     /// \brief Save child parameters
     public: virtual void Save(std::string &prefix, std::ostream &stream);

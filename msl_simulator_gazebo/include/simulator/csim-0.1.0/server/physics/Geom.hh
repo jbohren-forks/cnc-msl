@@ -42,13 +42,13 @@
 #include <boost/signal.hpp>
 #include <boost/bind.hpp>
 
-#include "Contact.hh"
-#include "Shape.hh"
-#include "../Param.hh"
-#include "../Entity.hh"
-#include "../Pose3d.hh"
-#include "../Vector3.hh"
-#include "Mass.hh"
+#include "simulator/csim-0.1.0/server/physics/Contact.hh"
+#include "simulator/csim-0.1.0/server/physics/Shape.hh"
+#include "simulator/csim-0.1.0/server/Param.hh"
+#include "simulator/csim-0.1.0/server/Entity.hh"
+#include "simulator/csim-0.1.0/server/Pose3d.hh"
+#include "simulator/csim-0.1.0/server/Vector3.hh"
+#include "simulator/csim-0.1.0/server/physics/Mass.hh"
 
 namespace gazebo
 {

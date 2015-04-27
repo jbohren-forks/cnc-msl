@@ -36,7 +36,7 @@
  *
  */
 
-#include "Contact.hh"
+#include "simulator/csim-0.1.0/server/physics/Contact.hh"
 
 using namespace gazebo;
 

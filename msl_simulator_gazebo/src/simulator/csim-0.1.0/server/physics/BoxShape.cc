@@ -1,4 +1,4 @@
-#include "BoxShape.hh"
+#include "simulator/csim-0.1.0/server/physics/BoxShape.hh"
 
 using namespace gazebo;
 
@@ -23,9 +23,10 @@ BoxShape::~BoxShape()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Load the box
-void BoxShape::Load(XMLConfigNode *node)
+//TODO XML STUFF
+void BoxShape::Load(/*XMLConfigNode *node*/)
 {
-  this->sizeP->Load(node);
+  this->sizeP->Load();
   this->SetSize( **this->sizeP );
 }
 

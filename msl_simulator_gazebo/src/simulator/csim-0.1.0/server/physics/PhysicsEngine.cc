@@ -38,10 +38,10 @@
 
 #include <boost/thread/recursive_mutex.hpp>
 
-#include "World.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
 
-#include "Shape.hh"
-#include "PhysicsEngine.hh"
+#include "simulator/csim-0.1.0/server/physics/Shape.hh"
+#include "simulator/csim-0.1.0/server/physics/PhysicsEngine.hh"
 
 using namespace gazebo;
 

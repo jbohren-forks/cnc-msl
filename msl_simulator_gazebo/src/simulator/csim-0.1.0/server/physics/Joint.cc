@@ -36,12 +36,12 @@
  *
  */
 
-#include "PhysicsEngine.hh"
-#include "Global.hh"
-#include "Body.hh"
-#include "Model.hh"
-#include "World.hh"
-#include "Joint.hh"
+#include "simulator/csim-0.1.0/server/physics/PhysicsEngine.hh"
+#include "simulator/csim-0.1.0/server/Global.hh"
+#include "simulator/csim-0.1.0/server/physics/Body.hh"
+#include "simulator/csim-0.1.0/server/Model.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
+#include "simulator/csim-0.1.0/server/physicsJoint.hh"
 
 using namespace gazebo;
 
@@ -101,21 +101,22 @@ Joint::Type Joint::GetType() const
 
 //////////////////////////////////////////////////////////////////////////////
 // Load a joint
-void Joint::Load(XMLConfigNode *node)
+//TODO XML STUFF
+void Joint::Load(/*XMLConfigNode *node*/)
 {
   // Name the joint
-  this->nameP->Load(node);
+  this->nameP->Load();
 
-  this->body1NameP->Load(node);
-  this->body2NameP->Load(node);
-  this->anchorBodyNameP->Load(node);
-  this->anchorOffsetP->Load(node);
-  this->erpP->Load(node);
-  this->cfmP->Load(node);
-  this->stopKpP->Load(node);
-  this->stopKdP->Load(node);
-  this->provideFeedbackP->Load(node);
-  this->fudgeFactorP->Load(node);
+  this->body1NameP->Load();
+  this->body2NameP->Load();
+  this->anchorBodyNameP->Load();
+  this->anchorOffsetP->Load();
+  this->erpP->Load();
+  this->cfmP->Load();
+  this->stopKpP->Load();
+  this->stopKdP->Load();
+  this->provideFeedbackP->Load();
+  this->fudgeFactorP->Load();
 
   this->body1 = this->model->GetBody( **(this->body1NameP));
   this->body2 = this->model->GetBody(**(this->body2NameP));
@@ -123,10 +124,10 @@ void Joint::Load(XMLConfigNode *node)
   this->anchorBody = this->model->GetBody(**(this->anchorBodyNameP));
 
   if (!this->body1 && this->body1NameP->GetValue() != std::string("world"))
-    gzthrow("Couldn't Find Body[" + node->GetString("body1","",1));
+    gzthrow("Couldn't Find Body[" /*+ node->GetString("body1","",1)*/);
 
   if (!this->body2 && this->body2NameP->GetValue() != std::string("world"))
-    gzthrow("Couldn't Find Body[" + node->GetString("body2","",1));
+    gzthrow("Couldn't Find Body[" /*+ node->GetString("body2","",1)*/);
 
   // setting anchor relative to gazebo body frame origin
   this->anchorPos = (Pose3d(**(this->anchorOffsetP),Quatern()) + this->anchorBody->GetAbsPose()).pos ;

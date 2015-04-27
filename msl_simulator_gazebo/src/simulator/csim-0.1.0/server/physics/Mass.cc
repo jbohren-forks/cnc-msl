@@ -36,7 +36,7 @@
  *
  */
 
-#include "Mass.hh"
+#include "simulator/csim-0.1.0/server/physics/Mass.hh"
 
 using namespace gazebo;
 

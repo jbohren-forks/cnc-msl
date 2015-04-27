@@ -39,8 +39,8 @@
 #ifndef BOXSHAPE_HH
 #define BOXSHAPE_HH
 
-#include "Param.hh"
-#include "Shape.hh"
+#include "simulator/csim-0.1.0/server/Param.hh"
+#include "simulator/csim-0.1.0/server/physics/Shape.hh"
 
 namespace gazebo
 {
@@ -91,7 +91,8 @@ namespace gazebo
     public: virtual ~BoxShape();
 
     /// \brief Load the box
-    public: virtual void Load(XMLConfigNode *node);
+    //TODO XML STUFF
+    public: virtual void Load(/*XMLConfigNode *node*/);
 
     /// \brief Save child parameters
     public: virtual void Save(std::string &prefix, std::ostream &stream);

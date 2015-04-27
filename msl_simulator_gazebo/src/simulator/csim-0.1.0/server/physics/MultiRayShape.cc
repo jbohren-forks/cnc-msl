@@ -1,5 +1,4 @@
-#include "XMLConfig.hh"
-#include "MultiRayShape.hh"
+#include "simulator/csim-0.1.0/server/physics/MultiRayShape.hh"
 
 using namespace gazebo;
 

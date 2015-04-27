@@ -38,16 +38,16 @@
 
 #include <sstream>
 
-#include "Shape.hh"
-#include "Mass.hh"
-#include "PhysicsEngine.hh"
-#include "Global.hh"
-#include "GazeboMessage.hh"
-#include "SurfaceParams.hh"
-#include "World.hh"
-#include "Body.hh"
-#include "Geom.hh"
-#include "Simulator.hh"
+#include "simulator/csim-0.1.0/server/physics/Shape.hh"
+#include "simulator/csim-0.1.0/server/physics/Mass.hh"
+#include "simulator/csim-0.1.0/server/physics/PhysicsEngine.hh"
+#include "simulator/csim-0.1.0/server/Global.hh"
+#include "simulator/csim-0.1.0/server/GazeboMessage.hh"
+#include "simulator/csim-0.1.0/server/physics/SurfaceParams.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
+#include "simulator/csim-0.1.0/server/physics/Body.hh"
+#include "simulator/csim-0.1.0/server/physics/Geom.hh"
+#include "simulator/csim-0.1.0/server/Simulator.hh"
 
 using namespace gazebo;
 
@@ -102,29 +102,30 @@ Geom::~Geom()
 
 ////////////////////////////////////////////////////////////////////////////////
 // First step in the loading process
-void Geom::Load(XMLConfigNode *node)
+//TODO XML STUFF
+void Geom::Load(/*XMLConfigNode *node*/)
 {
-  this->xmlNode=node;
+//  this->xmlNode=node;
 
-  this->typeName = node->GetName();
+  this->typeName = "";//node->GetName();
 
-  this->nameP->Load(node);
+  this->nameP->Load();
   this->SetName(this->nameP->GetValue());
-  this->nameP->Load(node);
-  this->massP->Load(node);
-  this->xyzP->Load(node);
-  this->rpyP->Load(node);
-  this->laserFiducialIdP->Load(node);
-  this->laserRetroP->Load(node);
-  this->pigmentP->Load(node);
+  this->nameP->Load();
+  this->massP->Load();
+  this->xyzP->Load();
+  this->rpyP->Load();
+  this->laserFiducialIdP->Load();
+  this->laserRetroP->Load();
+  this->pigmentP->Load();
 
   this->SetRelativePose( Pose3d( **this->xyzP, **this->rpyP ) );
 
   this->mass.SetMass( **this->massP );
 
-  this->surface->Load(node);
+  this->surface->Load();
 
-  this->shape->Load(node);
+  this->shape->Load();
 
   this->body->AttachGeom(this);
 

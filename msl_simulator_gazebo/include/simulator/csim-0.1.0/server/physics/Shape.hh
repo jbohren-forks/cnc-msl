@@ -32,7 +32,7 @@ namespace gazebo
     
     /// \brief Load the shape
 //    TODO: XML STUFF
-//    public: virtual void Load(XMLConfigNode *node) = 0;
+    public: virtual void Load(/*XMLConfigNode *node*/) = 0;
   
     /// \brief Save the shape
     public: virtual void Save(std::string &prefix, std::ostream &stream) = 0;

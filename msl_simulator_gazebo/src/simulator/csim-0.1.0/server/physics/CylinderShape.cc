@@ -24,9 +24,10 @@ CylinderShape::~CylinderShape()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Load the cylinder
-void CylinderShape::Load(XMLConfigNode *node)
+//TODO XML STUFF
+void CylinderShape::Load(/*XMLConfigNode *node*/)
 {
-  this->sizeP->Load(node);
+  this->sizeP->Load();
   this->SetSize( this->sizeP->GetValue() );
 }
 
