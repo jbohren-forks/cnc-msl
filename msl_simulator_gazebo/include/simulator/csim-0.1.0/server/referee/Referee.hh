@@ -31,8 +31,8 @@
 #include <iostream>
 #include <boost/thread.hpp>
 
-#include "../Field.hh"
-#include "../SingletonT.hh"
+#include "simulator/csim-0.1.0/server//Field.hh"
+#include "simulator/csim-0.1.0/server//SingletonT.hh"
 
 #define TEAM_NONE     0
 #define TEAM_MAGENTA  1
@@ -59,8 +59,8 @@ namespace gazebo {
   class Referee : public SingletonT<Referee> {
 
   public:
-  
-    void Load(XMLConfigNode* node);
+  //TODO XML STUFF
+    void Load(/*XMLConfigNode* node*/);
     void Init();
     void Fini();
     

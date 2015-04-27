@@ -10,7 +10,7 @@
 
 namespace visual {
   
-  class MainWindow : public QMainWindow, private Ui::VisualAppMW {
+  class MainWindow : public QMainWindow/*, private Ui::VisualAppMW*/ {
     Q_OBJECT
     
   public:

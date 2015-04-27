@@ -25,9 +25,9 @@
  * SVN info: $Id:$
  */
 
-#include "PhysicsEngine.hh"
-#include "PhysicsFactory.hh"
-#include "config.h"
+#include "simulator/csim-0.1.0/server/physics/PhysicsEngine.hh"
+#include "simulator/csim-0.1.0/server/physics/PhysicsFactory.hh"
+#include "simulator/csim-0.1.0/config.h"
 
 #ifdef INCLUDE_ODE
 void RegisterODEPhysics();

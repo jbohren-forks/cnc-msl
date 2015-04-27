@@ -40,7 +40,7 @@ protected:
     
     void timerEvent(QTimerEvent *event);
 
-signals:
+Q_SIGNALS:
     void actionInfo(const QString& ainfo, int timeout = 0);
 
 private:

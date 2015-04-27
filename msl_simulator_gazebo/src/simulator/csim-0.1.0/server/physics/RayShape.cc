@@ -36,7 +36,7 @@
  *
  */
 
-#include "RayShape.hh"
+#include "simulator/csim-0.1.0/server/physics/RayShape.hh"
 
 using namespace gazebo;
 
@@ -149,7 +149,8 @@ int RayShape::GetFiducial() const
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Load thte ray
-void RayShape::Load(XMLConfigNode *node) 
+//TODO XML STUFF
+void RayShape::Load(/*XMLConfigNode *node*/)
 {
 }
 

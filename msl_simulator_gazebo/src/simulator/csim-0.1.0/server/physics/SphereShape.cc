@@ -61,9 +61,10 @@ SphereShape::~SphereShape()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Load the sphere
-void SphereShape::Load(XMLConfigNode *node)
+//TODO XML STUFF
+void SphereShape::Load(/*XMLConfigNode *node*/)
 {
-  this->radiusP->Load(node);
+  this->radiusP->Load();
   this->SetSize( **this->radiusP );
 }
 

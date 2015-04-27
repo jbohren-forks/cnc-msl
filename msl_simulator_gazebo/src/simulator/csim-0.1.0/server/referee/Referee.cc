@@ -28,34 +28,33 @@
 #include "GazeboMessage.hh"
 #include "GazeboError.hh"
 
-#include "World.hh"
-#include "Model.hh"
-#include "Geom.hh"
-#include "Field.hh"
-#include "XMLConfig.hh"
-#include "ContactSensor.hh"
-#include "Referee.hh"
-#include "Socket.hh"
-#include "OldRefBoxProtocol.hh"
+#include "simulator/csim-0.1.0/server/World.hh"
+#include "simulator/csim-0.1.0/server/Model.hh"
+#include "simulator/csim-0.1.0/server/physics/Geom.hh"
+#include "simulator/csim-0.1.0/server/Field.hh"
+#include "simulator/csim-0.1.0/server/sensors/contact/ContactSensor.hh"
+#include "simulator/csim-0.1.0/server/referee/Referee.hh"
+#include "simulator/csim-0.1.0/server/referee/Socket.hh"
+#include "simulator/csim-0.1.0/server/referee/OldRefBoxProtocol.hh"
 
 
 using namespace gazebo;
 using namespace csim;
 
+//TODO XML STUFF
+void Referee::Load(/*XMLConfigNode* node*/){
 
-void Referee::Load(XMLConfigNode* node){
-
-  XMLConfigNode *refereeNode = node->GetChildByNSPrefix("referee");
+//  XMLConfigNode *refereeNode = node->GetChildByNSPrefix("referee");
   
-  if ( refereeNode == NULL ){
-    this->enabled = false;
-    return;
-  }
+//  if ( refereeNode == NULL ){
+//    this->enabled = false;
+//    return;
+//  }
 
-  this->ballModelName     = refereeNode->GetString("ballModel",     std::string(), 1);
-  this->contactSensorName = refereeNode->GetString("contactSensor", std::string(), 1);
+  this->ballModelName     = std::string();//refereeNode->GetString("ballModel",     std::string(), 1);
+  this->contactSensorName = std::string();//refereeNode->GetString("contactSensor", std::string(), 1);
 
-  this->socketPort = refereeNode->GetInt("port", 28097, 0);
+  this->socketPort = 28097;//refereeNode->GetInt("port", 28097, 0);
   
   // pre-activate the Referee
   this->enabled = true;

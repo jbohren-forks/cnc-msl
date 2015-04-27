@@ -152,7 +152,8 @@ void World::Close()
 
 ////////////////////////////////////////////////////////////////////////////////
 // Load the world
-void World::Load(XMLConfigNode *rootNode, unsigned int serverId)
+//TODO XML STUFF
+void World::Load(/*XMLConfigNode *rootNode,*/ unsigned int serverId)
 {
   Simulator::Instance()->ConnectPauseSignal( 
       boost::bind(&World::PauseSlot, this, _1) );
@@ -184,19 +185,21 @@ void World::Load(XMLConfigNode *rootNode, unsigned int serverId)
   this->factory = new Factory();
 
 
-  XMLConfigNode *physicsNode = rootNode->GetChildByNSPrefix("physics");
-  if (Simulator::Instance()->GetPhysicsEnabled() && physicsNode)
+  //TODO XML STUFF
+  //XMLConfigNode *physicsNode = rootNode->GetChildByNSPrefix("physics");
+  if (Simulator::Instance()->GetPhysicsEnabled() /*&& physicsNode*/)
   {
-    this->physicsEngine = PhysicsFactory::NewPhysicsEngine( physicsNode->GetName());
+    this->physicsEngine = "";//PhysicsFactory::NewPhysicsEngine( physicsNode->GetName());
     if (this->physicsEngine == NULL)
       gzthrow("Unable to create physics engine\n");
   }
   
   // Load field segments
-  XMLConfigNode *fieldNode = rootNode->GetChildByNSPrefix("field");
-  this->field->Load( fieldNode );
+  //TODO XML STUFF
+ // XMLConfigNode *fieldNode = rootNode->GetChildByNSPrefix("field");
+  this->field->Load( );
 
-  this->LoadEntities(rootNode, NULL, false);
+  this->LoadEntities( NULL, false);
 
   /*std::vector<Model*>::iterator miter;
   for (miter = this->models.begin(); miter != this->models.end(); miter++)
@@ -204,11 +207,12 @@ void World::Load(XMLConfigNode *rootNode, unsigned int serverId)
     this->SetModelPose(*miter, (*miter)->GetPose() + Global::poseOffset);
   }*/
 
-  this->physicsEngine->Load(rootNode);
+  //TODO XML STUFF
+  this->physicsEngine->Load();
 
-  this->threadsP->Load(rootNode);
-  this->saveStateTimeoutP->Load(rootNode);
-  this->saveStateBufferSizeP->Load(rootNode);
+  this->threadsP->Load();
+  this->saveStateTimeoutP->Load();
+  this->saveStateBufferSizeP->Load();
 
   this->worldStates.resize(**this->saveStateBufferSizeP);
   this->worldStatesInsertIter = this->worldStates.begin();
@@ -401,26 +405,27 @@ PhysicsEngine *World::GetPhysicsEngine() const
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load a model
-void World::LoadEntities(XMLConfigNode *node, Model *parent, bool removeDuplicate)
+//TODO XML STUFF
+void World::LoadEntities(/*XMLConfigNode *node,*/ Model *parent, bool removeDuplicate)
 {
-  XMLConfigNode *cnode;
-  Model *model = NULL;
-
-  if (node->GetNSPrefix() != "")
-  {
-    // Check for model nodes
-    if (node->GetNSPrefix() == "model")
-    {
-      model = this->LoadModel(node, parent, removeDuplicate);
-      this->addEntitySignal(model);
-    }
-  }
-
-  // Load children
-  for (cnode = node->GetChild(); cnode != NULL; cnode = cnode->GetNext())
-  {
-    this->LoadEntities( cnode, model, removeDuplicate );
-  }
+//  XMLConfigNode *cnode;
+//  Model *model = NULL;
+//
+//  if (node->GetNSPrefix() != "")
+//  {
+//    // Check for model nodes
+//    if (node->GetNSPrefix() == "model")
+//    {
+//      model = this->LoadModel(node, parent, removeDuplicate);
+//      this->addEntitySignal(model);
+//    }
+//  }
+//
+//  // Load children
+//  for (cnode = node->GetChild(); cnode != NULL; cnode = cnode->GetNext())
+//  {
+//    this->LoadEntities( cnode, model, removeDuplicate );
+//  }
 
 }
 
@@ -448,21 +453,22 @@ void World::ProcessEntitiesToLoad()
         iter != this->toLoadEntities.end(); iter++)
     {
       // Create the world file
-      XMLConfig *xmlConfig = new XMLConfig();
+    	//TODO XML STUFF
+     // XMLConfig *xmlConfig = new XMLConfig();
 
       // Load the XML tree from the given string
-      try
-      {
-        xmlConfig->LoadString( *iter );
-      }
-      catch (gazebo::GazeboError e)
-      {
-        gzerr(0) << "The world could not load the XML data [" << e << "]\n";
-        continue;
-      }
-
-      this->LoadEntities( xmlConfig->GetRootNode(), NULL, true); 
-      delete xmlConfig;
+//      try
+//      {
+//        xmlConfig->LoadString( *iter );
+//      }
+//      catch (gazebo::GazeboError e)
+//      {
+//        gzerr(0) << "The world could not load the XML data [" << e << "]\n";
+//        continue;
+//      }
+//
+//      this->LoadEntities( xmlConfig->GetRootNode(), NULL, true);
+//      delete xmlConfig;
     }
     this->toLoadEntities.clear();
   }
@@ -488,14 +494,15 @@ void World::DeleteEntity(const char *name)
 
 ////////////////////////////////////////////////////////////////////////////////
 // Load a model
-Model *World::LoadModel(XMLConfigNode *node, Model *parent, bool removeDuplicate)
+//TODO XML STUFF
+Model *World::LoadModel(/*XMLConfigNode *node,*/ Model *parent, bool removeDuplicate)
 {
   Pose3d pose;
   Model *model = new Model(parent);
 
   //model->SetParent(parent);
   // Load the model
-  model->Load( node, removeDuplicate );
+  model->Load(removeDuplicate );
 
   // Set the model's pose (relative to parent)
   //this->SetModelPose(model, model->GetInitPose());
@@ -506,8 +513,9 @@ Model *World::LoadModel(XMLConfigNode *node, Model *parent, bool removeDuplicate
   if (Simulator::Instance()->GetSimTime() > 0)
     model->Init();
 
-  if (parent != NULL)
-    model->Attach(node->GetChild("attach"));
+  //TODO XML STUFF
+ // if (parent != NULL)
+    //model->Attach(node->GetChild("attach"));
 
   return model;
 }

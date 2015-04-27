@@ -52,7 +52,8 @@ namespace gazebo
     public: SurfaceParams();
   
     /// \brief Load the contact params
-    public: void Load(XMLConfigNode *node);
+    //TODO XML STUFF
+    public: void Load(/*XMLConfigNode *node*/);
  
     /// Spring constant
     public: double kp;   

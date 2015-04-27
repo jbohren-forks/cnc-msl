@@ -15,13 +15,14 @@
 using namespace gazebo;
 using namespace visual;
 
-void VisualApp::Load(XMLConfigNode *node){
+//TODO XML STUFF
+void VisualApp::Load(/*XMLConfigNode *node*/){
   
-  XMLConfigNode *visualNode = node->GetChildByNSPrefix("visual");
-  if ( visualNode == NULL )
-    return;
+//  XMLConfigNode *visualNode = node->GetChildByNSPrefix("visual");
+//  if ( visualNode == NULL )
+//    return;
     
-  this->ballModelName = visualNode->GetString("ballModel", std::string(), 0);
+  this->ballModelName = std::string();// visualNode->GetString("ballModel", std::string(), 0);
   
 }
 

@@ -37,8 +37,7 @@
  */
 
 #include <float.h>
-#include "XMLConfig.hh"
-#include "SurfaceParams.hh"
+#include "simulator/csim-0.1.0/server/physics/SurfaceParams.hh"
 
 using namespace gazebo;
 
@@ -69,9 +68,10 @@ SurfaceParams::SurfaceParams()
 
 //////////////////////////////////////////////////////////////////////////////
 /// Load the contact params
-void SurfaceParams::Load(XMLConfigNode *node)
+//TODO XML STUFF
+void SurfaceParams::Load(/*XMLConfigNode *node*/)
 {
-  this->kp = node->GetDouble("kp",this->kp);
+  /*this->kp = node->GetDouble("kp",this->kp);
   this->kd = node->GetDouble("kd",this->kd);
   this->bounce = node->GetDouble("bounce",this->bounce);
   this->bounceVel = node->GetDouble("bounceVel",this->bounceVel);
@@ -81,5 +81,5 @@ void SurfaceParams::Load(XMLConfigNode *node)
   this->slip1 = node->GetDouble("slip1",this->slip1);
   this->slip2 = node->GetDouble("slip2",this->slip2);
 
-  this->softCfm = node->GetDouble("softCFM",this->softCfm);
+  this->softCfm = node->GetDouble("softCFM",this->softCfm);*/
 }

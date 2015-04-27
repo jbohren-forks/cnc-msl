@@ -110,6 +110,7 @@ messages are appended by default to a file called @c .gazebo located in your
 home directory, or to the log file specified with the -l command line option.
 */
 
+#define BOOST_SIGNALS_NO_DEPRECATION_WARNING
 //#include <python2.4/Python.h>
 
 #include <stdio.h>

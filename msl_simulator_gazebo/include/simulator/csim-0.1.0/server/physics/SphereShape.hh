@@ -91,7 +91,8 @@ namespace gazebo
     public: virtual ~SphereShape();
 
     /// \brief Load the sphere
-    public: virtual void Load(XMLConfigNode *node);
+    //TODO XML STUFF
+    public: virtual void Load(/*XMLConfigNode *node*/);
 
     /// \brief Save shape parameters
     public: virtual void Save(std::string &prefix, std::ostream &stream);

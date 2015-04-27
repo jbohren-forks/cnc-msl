@@ -25,8 +25,8 @@
  *
  */
  
-#include "Socket.hh"
-#include "OldRefBoxProtocol.hh"
+#include "simulator/csim-0.1.0/server/referee/Socket.hh"
+#include "simulator/csim-0.1.0/server/referee/OldRefBoxProtocol.hh"
 
 using namespace csim;
 

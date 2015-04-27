@@ -379,7 +379,7 @@ void RenderWidget::mouseMoveEvent(QMouseEvent *event)
     	    		                            .arg( fx, 3, 'f', 2 )
     	    		                            .arg( fy, 3, 'f', 2);
 
-      emit actionInfo( info );
+      Q_EMIT actionInfo( info );
     }
     
     if ( this->rotateMode ){
@@ -403,11 +403,11 @@ void RenderWidget::mouseMoveEvent(QMouseEvent *event)
       			p.pos.y = ((this->hfL + lR) * 2.0 * mx / this->w) - (this->hfL + lR);
       			World::Instance()->SetModelPose( this->selectedModel,  p );
 
-      			emit actionInfo( info );
+      			Q_EMIT actionInfo( info );
           	}else{
           		QString info = QString("Orientation: %1 (deg)").arg(
           		              - RTOD( std::atan2( rel.pos.x, rel.pos.y ) - mpos.rot.GetYaw() ), 0, 'f', 2 );
-          		      emit actionInfo( info );
+          		Q_EMIT actionInfo( info );
           	}
 
 
@@ -424,7 +424,7 @@ void RenderWidget::mouseMoveEvent(QMouseEvent *event)
       Pose3d rel = dummy - mpos;
 
       QString info = QString("Speed: %1 (m/s)").arg( rel.pos.GetLength() , 0, 'f', 2 );
-      emit actionInfo( info );
+      Q_EMIT actionInfo( info );
     }
     
     return;
@@ -441,14 +441,14 @@ void RenderWidget::keyPressEvent(QKeyEvent* event)
       viewmode = RenderWidget::kFreeView; 
       this->resizeGL(this->w, this->h); 
       info = QString("FreeView selected");
-      emit actionInfo( info );
+      Q_EMIT actionInfo( info );
       return;
       
     case Qt::Key_Plus : 
       viewmode = RenderWidget::kBallView; 
       this->resizeGL(this->w, this->h);
       info = QString("BallView selected");
-      emit actionInfo( info );
+      Q_EMIT actionInfo( info );
       return;
 
     case Qt::Key_0 :
@@ -456,7 +456,7 @@ void RenderWidget::keyPressEvent(QKeyEvent* event)
       this->resizeGL(this->w, this->h); 
 
       info = QString("TopView selected");
-      emit actionInfo( info );
+      Q_EMIT actionInfo( info );
       return;
       
     case Qt::Key_1 :
@@ -470,7 +470,7 @@ void RenderWidget::keyPressEvent(QKeyEvent* event)
       this->resizeGL(this->w, this->h);
 
       info = QString("View of robot %1 selected").arg(this->watchThisRobot);
-      emit actionInfo( info );
+      Q_EMIT actionInfo( info );
 
       return;
       

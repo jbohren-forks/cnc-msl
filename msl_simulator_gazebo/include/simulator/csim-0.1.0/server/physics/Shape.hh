@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-#include "../Common.hh"
+#include "simulator/csim-0.1.0/server/Common.hh"
 
 
 namespace gazebo

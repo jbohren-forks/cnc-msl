@@ -44,11 +44,12 @@ PlaneShape::~PlaneShape()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Load the plane
-void PlaneShape::Load(XMLConfigNode *node)
+//TODO XML STUFF
+void PlaneShape::Load(/*XMLConfigNode *node*/)
 {
   Vector3 perp;
 
-  this->normalP->Load(node);
+  this->normalP->Load();
   this->CreatePlane();
 }
 

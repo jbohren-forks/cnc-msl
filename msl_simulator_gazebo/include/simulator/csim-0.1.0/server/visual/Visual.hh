@@ -1,7 +1,7 @@
 #ifndef _VISUAL_HH_
 #define _VISUAL_HH_
 
-#include "../SingletonT.hh"
+#include "simulator/csim-0.1.0/server/SingletonT.hh"
 
 
 class QApplication;
@@ -15,8 +15,8 @@ namespace visual {
   class VisualApp : public SingletonT<VisualApp> {
     
   public:
-    
-    void Load( XMLConfigNode *node );
+    //TODO XML STUFF
+    void Load( /*XMLConfigNode *node*/ );
     void Init();
     void Fini();
     
