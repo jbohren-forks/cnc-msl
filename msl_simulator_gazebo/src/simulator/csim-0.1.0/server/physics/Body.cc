@@ -40,7 +40,6 @@
 #include <float.h>
 
 #include "SensorManager.hh"
-#include "XMLConfig.hh"
 #include "Model.hh"
 #include "GazeboMessage.hh"
 #include "Geom.hh"
